@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #2A3F54;
+    color: #FFFFFF;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.hero {
+    background-color: #F8F9FB;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.btn.urgent {
+    background-color: #FF6B6B;
+    margin-left: 20px;
+}
+
+/* Основное содержание */
+main {
+    background-color: #FFFFFF;
+    padding: 40px 20px;
+}
+
+.about, .services {
+    margin-bottom: 40px;
+}
+
+.about h2, .services h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.services ul {
+    list-style: none;
+}
+
+.services ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Футер */
+footer {
+    background-color: #2A3F54;
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact p {
+    margin: 5px 0;
+}
+
+.social a {
+    color: #FFFFFF;
+    margin: 0 10px;
+    text-decoration: none;
+}
