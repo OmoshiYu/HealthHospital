@@ -93,6 +93,10 @@ nav ul li a:hover::after, nav ul li a.active::after {
     width: 100%;
 }
 
+nav ul li a.btn-header::after {
+    display: none;
+}
+
 
 /* Герой-секция */
 .hero {
