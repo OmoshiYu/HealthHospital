@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Врачи - Больница Здоровья</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%234CAF50'/><path d='M50,20 v60 M20,50 h60' stroke='%23FFFFFF' stroke-width='12' stroke-linecap='round'/></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="logo">
+    <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: #FFFFFF;">
+        <svg width="50" height="50" viewBox="0 0 55 50" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <circle cx="25" cy="25" r="22" fill="#4CAF50"/>
+                <path d="M25,12 v26 M12,25 h26" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+            </g>
+        </svg>
+        <h1 style="margin-left: 10px; font-size: 24px;">Больница Здоровья</h1>
+    </a>
+		</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="doctors.html">Врачи</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="appointment.html" style="color: #FFFFFF;" class="btn btn-header">Запись</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Основное содержание -->
+    <main>
+        <section class="content-page">
+            <h2>Наши Врачи</h2>
+            <div class="doctors-list">
+                <div class="doctor-card">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1920&auto=format&fit=crop" alt="Врач-терапевт">
+                    <h3>Иванова Мария Петровна</h3>
+                    <p><strong>Специальность:</strong> Терапевт</p>
+                    <p><strong>Стаж:</strong> 15 лет</p>
+                </div>
+                <div class="doctor-card">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1920&auto=format&fit=crop" alt="Врач-хирург">
+                    <h3>Петров Сергей Викторович</h3>
+                    <p><strong>Специальность:</strong> Хирург</p>
+                    <p><strong>Стаж:</strong> 20 лет</p>
+                </div>
+                 <div class="doctor-card">
+                    <img src="https://plus.unsplash.com/premium_photo-1661777326990-9dbd5b4d475e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Врач-кардиолог">
+                    <h3>Сидорова Анна Ивановна</h3>
+                    <p><strong>Специальность:</strong> Кардиолог</p>
+                    <p><strong>Стаж:</strong> 12 лет</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <h3>Контакты</h3>
+                <p>Адрес: ул. Здоровья, 1, г. Москва</p>
+                <p>Телефон: +7 (918) 123-45-67</p>
+                <p>Email: info@healthhospital.ru</p>
+            </div>
+             <div class="map">
+                 <h3>Мы на карте</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.429666277493!2d37.6173!3d55.7558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDQ1JzIwLjkiTiAzN8KwMzcnMDIuMyJF!5e0!3m2!1sru!2sru!4v1677654321" width="300" height="200" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="social">
+                <h3>Мы в соцсетях</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter/X</a>
+            </div>
+        </div>
+        <div class="footer-author">
+            <p>Тема: Сайт больницы Здоровья | Версия: 1.4.0</p>
+            <p>Автор: Райков Тимофей Владимирович, группа ИС-33</p>
+            <p><a href="https://github.com/OmoshiYu">GitHub</a></p>
+        </div>
+        <p class="footer-bottom">© 2025 Больница Здоровья. Все права защищены.</p>
+    </footer>
+	
+	<!-- Анимация -->
+	<script>
+        function revealOnScroll() {
+            var reveals = document.querySelectorAll('.reveal');
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active'); // Повтор при возвращении наверх
+                }
+            }
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
