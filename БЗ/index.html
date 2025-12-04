@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Больница Здоровья</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%234CAF50'/><path d='M50,20 v60 M20,50 h60' stroke='%23FFFFFF' stroke-width='12' stroke-linecap='round'/></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+	<div id="preloader">
+		<div class="spinner"></div>
+	</div>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: #FFFFFF;">
+                <svg width="50" height="50" viewBox="0 0 55 50" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <circle cx="25" cy="25" r="22" fill="#4CAF50"/>
+                        <path d="M25,12 v26 M12,25 h26" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+                    </g>
+                </svg>
+                <h1 style="margin-left: 10px; font-size: 24px;">Больница Здоровья</h1>
+            </a>
+		</div>
+		<div class="burger-menu">
+			<div class="line1"></div>
+			<div class="line2"></div>
+			<div class="line3"></div>
+		</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="doctors.html">Врачи</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="appointment.html" class="btn btn-header">Запись</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Добро пожаловать в Больницу Здоровья</h2>
+            <p class="hero-subtitle">Мы заботимся о вашем здоровье с профессионализмом и вниманием.</p>
+            <div class="hero-buttons">
+                <a href="appointment.html" class="btn">Записаться на прием</a>
+                <a href="appointment.html" class="btn urgent">Срочная запись</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Основное содержание -->
+    <main>
+        <section class="about-short reveal">
+            <h2>О нашей больнице</h2>
+            <p>Больница Здоровья — это современное медицинское учреждение, оснащенное новейшим оборудованием и укомплектованное высококвалифицированными специалистами. Мы предлагаем широкий спектр медицинских услуг и индивидуальный подход к каждому пациенту. <a href="about.html">Узнать больше...</a></p>
+            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1173&auto=format&fit=crop" alt="О нас" style="width:100%; max-width: 500px; height:auto; border-radius: 8px; margin-top: 20px;">
+        </section>
+
+        <section class="services-short reveal">
+            <h2>Ключевые услуги</h2>
+            <p>Мы гордимся тем, что можем предложить комплексное медицинское обслуживание. Вот некоторые из наших направлений:</p>
+            <div class="services-list">
+                <div class="service-item">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1920&auto=format&fit=crop" alt="Терапия">
+                    <p>Терапия</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://images.unsplash.com/photo-1514416309827-bfb0cf433a2d?q=80&w=1171&auto=format&fit=crop" alt="Хирургия">
+                    <p>Хирургия</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://plus.unsplash.com/premium_photo-1661757033941-1b9dd6bec8ee?q=80&w=1170&auto=format&fit=crop" alt="Кардиология">
+                    <p>Кардиология</p>
+                </div>
+            </div>
+             <p style="text-align: center; margin-top: 20px;"><a href="services.html">Посмотреть все услуги...</a></p>
+        </section>
+
+        <section class="reviews reveal">
+            <h2>Отзывы пациентов</h2>
+            <div class="reviews-list">
+                <div class="review-item">
+                    <p>"Спасибо врачам за профессионализм и доброту! Очень помогли с лечением сердца!"</p>
+                    <span>— Анна, 34 года</span>
+                </div>
+                <div class="review-item">
+                    <p>"Срочная операция на лёгкие прошла успешно. Я благодарен хирургу за спасение моей жизни. Спасибо."</p>
+                    <span>— Иван, 45 лет</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <h3>Контакты</h3>
+                <p>Адрес: ул. Здоровья, 1, г. Москва</p>
+                <p>Телефон: +7 (918) 123-45-67</p>
+                <p>Email: info@healthhospital.ru</p>
+            </div>
+             <div class="map">
+                <h3>Мы на карте</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.429666277493!2d37.6173!3d55.7558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDQ1JzIwLjkiTiAzN8KwMzcnMDIuMyJF!5e0!3m2!1sru!2sru!4v1677654321" width="300" height="200" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="social">
+                <h3>Мы в соцсетях</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter/X</a>
+            </div>
+        </div>
+        <div class="footer-author">
+            <p>Тема: Сайт больницы Здоровья | Версия: 1.4.0</p>
+            <p>Автор: Райков Тимофей Владимирович, группа ИС-33-43</p>
+            <p><a href="https://github.com/OmoshiYu">GitHub</a></p>
+        </div>
+        <p class="footer-bottom">© 2025 Больница Здоровья. Все права защищены.</p>
+    </footer>
+	
+	<!-- Анимация -->
+	    <script src="script.js"></script>
+</body>
+</html>
