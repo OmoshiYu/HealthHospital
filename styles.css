@@ -19,6 +19,8 @@ body {
     line-height: 1.6;
     background-color: var(--light-bg);
     color: var(--dark-text);
+	overflow-x: hidden;
+    width: 100%;
 }
 
 /* Шапка */
@@ -232,7 +234,16 @@ main section {
     box-shadow: 0 12px 25px rgba(0,0,0,0.12);
 }
 
-.service-item img, .doctor-card img {
+/*.service-item img, .doctor-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}*/
+
+.service-item img {
     width: 100%;
     height: 180px;
     object-fit: cover;
@@ -241,8 +252,19 @@ main section {
     transition: transform 0.4s ease;
 }
 
+.doctor-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    margin: 0 auto 15px auto;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 .service-item:hover img, .doctor-card:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .service-item h3, .doctor-card h3 {
@@ -312,3 +334,537 @@ footer { background-color: var(--primary-dark); color: var(--white); padding: 40
 .footer-author a { color: var(--primary-green); text-decoration: none; }
 .footer-author a:hover { text-decoration: underline; }
 .footer-bottom { text-align: center; border-top: 1px solid #44586e; padding-top: 20px; margin-top: 20px; font-size: 14px; }
+
+/* Эффект сжатия шапки при скролле */
+header.scrolled {
+    padding: 10px 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    background-color: rgba(42, 63, 84, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+/* Мобильное меню (Гамбургер) - Стили */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.burger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+}
+
+/* Адаптивность навигации */
+@media screen and (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    nav ul {
+        position: absolute;
+        right: 0px;
+        top: 80px; /* Высота хедера */
+        height: calc(100vh - 80px);
+        background-color: var(--primary-dark);
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in;
+        padding-top: 50px;
+        z-index: 999;
+    }
+
+    nav ul.nav-active {
+        transform: translateX(0%);
+    }
+
+    /* Анимация иконки гамбургера в крестик */
+    .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+    .toggle .line2 { opacity: 0; }
+    .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+}
+
+/* Уведомление (Toast Notification) */
+.notification-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--white);
+    border-left: 5px solid var(--primary-green);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 300px;
+    z-index: 2000;
+    transform: translateX(150%);
+    transition: transform 0.3s ease;
+}
+
+.notification-toast.show {
+    transform: translateX(0);
+}
+
+.toast-content h4 {
+    margin: 0 0 5px;
+    color: var(--primary-dark);
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    margin-left: 15px;
+}
+.toast-close:hover { color: var(--primary-red); }
+
+/* Прелоадер */
+#preloader {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--white);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+#preloader.hide-preloader {
+    opacity: 0;
+    visibility: hidden;
+}
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Кнопка "Наверх" */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 900;
+}
+#backToTop:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-5px);
+}
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Поле поиска врачей */
+.search-wrapper {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.search-wrapper input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+.search-wrapper input:focus {
+    border-color: var(--primary-green);
+    outline: none;
+}
+
+/* Модальное окно */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-window {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+.modal-overlay.open .modal-window {
+    transform: translateY(0);
+}
+.modal-close {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+}
+.modal-close:hover { color: var(--primary-dark); }
+
+.form-group input.valid {
+    border-color: var(--primary-green);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234CAF50' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.form-group input.invalid {
+    border-color: var(--primary-red);
+}
+
+.accordion-container {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.accordion-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background: white;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: var(--primary-dark);
+    transition: background 0.3s;
+}
+
+.accordion-header:hover {
+    background: #f1f1f1;
+}
+
+.accordion-header::after {
+    content: '+';
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.accordion-header.active::after {
+    transform: rotate(45deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: var(--light-bg);
+}
+
+.accordion-content p {
+    padding: 20px;
+}
+
+.counters-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: var(--primary-dark);
+    color: white;
+    padding: 40px 20px;
+    border-radius: 8px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.counter-box {
+    margin: 20px;
+}
+
+.counter {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--primary-green);
+    display: block;
+}
+
+.counter-box p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-dark);
+    color: var(--white);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 900;
+    transition: transform 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+    --light-bg: #1e1e1e;
+    --white: #1e1e1e;
+    --dark-text: #e0e0e0;
+    --primary-dark: #1a1a1a;
+}
+
+body.dark-theme header {
+    background-color: #000000;
+}
+
+body.dark-theme .service-item, 
+body.dark-theme .doctor-card, 
+body.dark-theme .appointment-form,
+body.dark-theme .review-item,
+body.dark-theme .accordion-header,
+body.dark-theme .modal-window {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+body.dark-theme .accordion-header:hover {
+    background-color: #383838;
+}
+
+body.dark-theme .content-page h2 {
+    color: #e0e0e0;
+}
+
+body.dark-theme input, 
+body.dark-theme select, 
+body.dark-theme textarea {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark-theme .footer-bottom {
+    border-top-color: #333;
+}
+
+body.dark-theme .burger-menu div {
+    background-color: #fff;
+}
+
+body.dark-theme,
+body.dark-theme h1,
+body.dark-theme h2, 
+body.dark-theme h3, 
+body.dark-theme h4, 
+body.dark-theme p,
+body.dark-theme li {
+    color: #e0e0e0;
+}
+
+body.dark-theme .service-item h3,
+body.dark-theme .doctor-card h3,
+body.dark-theme .contact h3,
+body.dark-theme .map h3,
+body.dark-theme .social h3 {
+    color: #ffffff;
+}
+
+body.dark-theme .form-group label {
+    color: #cccccc;
+}
+
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+    color: #888;
+}
+
+body.dark-theme a:not(.btn) {
+    color: #66bb6a; /* Светло-зеленый */
+}
+body.dark-theme a:not(.btn):hover {
+    color: #81c784;
+}
+
+body.dark-theme footer {
+    background-color: #000000;
+    border-top: 1px solid #333;
+}
+
+body.dark-theme .footer-author {
+    color: #888;
+}
+
+body.dark-theme .accordion-header {
+    color: #fff; /* Белый текст заголовка вопроса */
+}
+
+body.dark-theme .modal-window h3 {
+    color: var(--primary-green); /* Зеленый заголовок */
+}
+body.dark-theme .modal-window p {
+    color: #ddd;
+}
+body.dark-theme .modal-close {
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* 1. Настройка Шапки */
+    header {
+        padding: 15px 20px;
+        position: fixed; /* Фиксируем шапку */
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+    /* Компенсация высоты фиксированной шапки, чтобы контент не залезал под нее */
+    body {
+        padding-top: 80px; 
+        overflow-x: hidden; /* Запрещаем горизонтальный скролл */
+    }
+
+    /* 2. Кнопка Гамбургер (три полоски) */
+    .burger-menu {
+        display: flex;
+        z-index: 2001; /* ОЧЕНЬ ВАЖНО: Кнопка должна быть ПОВЕРХ меню */
+        position: relative;
+    }
+
+    /* 3. Само меню (список ссылок) */
+    nav ul {
+        position: fixed; /* Фиксируем относительно экрана */
+        top: 0;
+        left: 0;
+        width: 100%;      /* На всю ширину */
+        height: 100vh;    /* На всю высоту экрана */
+        background-color: var(--primary-dark); /* Темный фон */
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Центрируем ссылки по вертикали */
+        align-items: center;     /* Центрируем ссылки по горизонтали */
+        
+        transform: translateX(100%); /* Спрятано справа */
+        transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        z-index: 2000; /* Поверх всего контента, но под кнопкой гамбургера */
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Когда меню открыто */
+    nav ul.nav-active {
+        transform: translateX(0%); /* Выезжает на весь экран */
+    }
+
+    /* Ссылки в меню */
+    nav ul li {
+        opacity: 0; /* Скрыты для анимации */
+        margin: 20px 0;
+    }
+
+    /* Анимация появления ссылок */
+    nav ul.nav-active li {
+        opacity: 1;
+        transition: opacity 0.5s ease 0.2s;
+    }
+
+    nav ul li a {
+        font-size: 24px; /* Крупный текст */
+        color: #fff !important; /* Всегда белый текст */
+        font-weight: 500;
+        display: block;
+    }
+
+    /* Адаптация остального контента */
+    .hero {
+        margin-top: 0; /* Убираем лишние отступы, т.к. есть padding-top у body */
+        padding: 60px 20px;
+        background-attachment: scroll; /* Фикс для iPhone */
+    }
+
+    /* Исправление карточек, чтобы они были в одну колонку */
+    .services-list, .doctors-list, .reviews-list {
+        display: grid;
+        grid-template-columns: 1fr; /* Одна колонка */
+        gap: 30px;
+    }
+
+    /* Убираем "висящие" элементы */
+    .service-item, .doctor-card {
+        width: 100%;
+        margin: 0;
+    }
+    
+    /* Футер */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-content > div {
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px !important; 
+    }
+}
+
+body.dark-theme nav ul {
+    background-color: #000000;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}

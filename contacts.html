@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+	<div id="preloader">
+		<div class="spinner"></div>
+	</div>
+
     <!-- Шапка -->
     <header>
         <div class="logo">
@@ -20,6 +25,11 @@
         </svg>
         <h1 style="margin-left: 10px; font-size: 24px;">Больница Здоровья</h1>
     </a>
+		</div>
+		<div class="burger-menu">
+			<div class="line1"></div>
+			<div class="line2"></div>
+			<div class="line3"></div>
 		</div>
         <nav>
             <ul>
@@ -73,32 +83,13 @@
         </div>
         <div class="footer-author">
             <p>Тема: Сайт больницы Здоровья | Версия: 1.4.0</p>
-            <p>Автор: Райков Тимофей Владимирович, группа ИС-33</p>
+            <p>Автор: Райков Тимофей Владимирович, группа ИС-33-43</p>
             <p><a href="https://github.com/OmoshiYu">GitHub</a></p>
         </div>
         <p class="footer-bottom">© 2025 Больница Здоровья. Все права защищены.</p>
     </footer>
 	
 	<!-- Анимация -->
-	<script>
-        function revealOnScroll() {
-            var reveals = document.querySelectorAll('.reveal');
-
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
-                } else {
-                    reveals[i].classList.remove('active'); // Повтор при возвращении наверх
-                }
-            }
-        }
-
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-    </script>
+	    <script src="script.js"></script>
 </body>
 </html>
